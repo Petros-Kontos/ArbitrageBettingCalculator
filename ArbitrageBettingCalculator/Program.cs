@@ -34,6 +34,10 @@ class ArbitrageBettingCalculator
         betAmount2str = Console.ReadLine();
         betAmount2 = int.Parse(betAmount2str);
 
+        //Calc standalone method...
+
+        //...up to here
+
         //Calculation and output
 
         grossprofit1 = (payout1) * betAmount1;
