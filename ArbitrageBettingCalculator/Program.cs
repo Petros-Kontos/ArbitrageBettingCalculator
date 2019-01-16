@@ -12,8 +12,8 @@ class ArbitrageBettingCalculator
 
         //Initial variable declarations
         
-        int payoutWin, payoutLoss, betAmountWin, betAmountLoss, grossProfitWin, grossProfitLoss, netProfitWin, netProfitLoss;
-        string payoutWinString, payoutLossString, betAmountWinString, betAmountLossString, restart;
+        int payoutWin, payoutLoss, payoutDraw, betAmountWin, betAmountLoss, betAmountDraw, grossProfitWin, grossProfitLoss, grossProfitDraw, netProfitWin, netProfitLoss, netProfitDraw;
+        string payoutWinString, payoutLossString, payoutDrawString, betAmountWinString, betAmountLossString, betAmountDrawString restart;
 
         //Getting the inputs from the user
 
