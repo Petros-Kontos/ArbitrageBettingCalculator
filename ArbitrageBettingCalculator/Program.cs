@@ -12,27 +12,28 @@ class ArbitrageBettingCalculator
 
         //Initial variable declarations
         
-
-        int payout1, payout2, betAmount1, betAmount2, grossprofit1, grossprofit2, netprofit1, netprofit2;
-        string payout1str, payout2str, betAmount1str, betAmount2str, restart;
+        int payoutWin, payoutLoss, betAmountWin, betAmountLoss, grossProfitWin, grossProfitLoss, netProfitWin, netProfitLoss;
+        string payoutWinString, payoutLossString, betAmountWinString, betAmountLossString, restart;
 
         //Getting the inputs from the user
 
-        Console.WriteLine("Please enter the payout factor if Team A wins");
-        payout1str = Console.ReadLine();
-        payout1 = int.Parse(payout1str);
+        Console.WriteLine("Please enter the payout factor if your team wins");
+        payoutWinString = Console.ReadLine();
+        payoutWin = int.Parse(payoutWinString);
 
-        Console.WriteLine("Please enter the payout factor if Team B wins");
-        payout2str = Console.ReadLine();
-        payout2 = int.Parse(payout2str);
+        Console.WriteLine("Please enter the payout factor if your team loses");
+        payoutLossString = Console.ReadLine();
+        payoutLoss = int.Parse(payoutLossString);
 
-        Console.WriteLine("Please enter the amount that you wish to bet on Team A winning (in pennies)");
-        betAmount1str = Console.ReadLine();
-        betAmount1 = int.Parse(betAmount1str);
 
-        Console.WriteLine("Please enter the amount that you wish to bet on Team B winning (in pennies)");
-        betAmount2str = Console.ReadLine();
-        betAmount2 = int.Parse(betAmount2str);
+
+        Console.WriteLine("Please enter the amount that you wish to bet on your team winning (in pennies)");
+        betAmountWinString = Console.ReadLine();
+        betAmountWin = int.Parse(betAmountWinString);
+
+        Console.WriteLine("Please enter the amount that you wish to bet on your team losing (in pennies)");
+        betAmountLossString = Console.ReadLine();
+        betAmountLoss = int.Parse(betAmountLossString);
 
         //Calc standalone method...
 
@@ -40,18 +41,18 @@ class ArbitrageBettingCalculator
 
         //Calculation and output
 
-        grossprofit1 = (payout1) * betAmount1;
-        grossprofit2 = (payout2) * betAmount2;
+        grossProfitWin = (payoutWin) * betAmountWin;
+        grossProfitLoss = (payoutLoss) * betAmountLoss;
 
-        netprofit1 = grossprofit1 - betAmount2;
-        netprofit2 = grossprofit2 - betAmount1;
+        netProfitWin = grossProfitWin - betAmountLoss;
+        netProfitLoss = grossProfitLoss - betAmountWin;
 
-        if (netprofit1 > 0 & netprofit2 > 0)
+        if (netProfitWin > 0 & netProfitLoss > 0)
         {
             Console.WriteLine("\n");
             Console.WriteLine("Profit is guarranteed!");
         }
-        else if (netprofit1 < 0 & netprofit2 < 0)
+        else if (netProfitWin < 0 & netProfitLoss < 0)
         {
             Console.WriteLine("\n");
             Console.WriteLine("Loss is certain...");
@@ -63,8 +64,8 @@ class ArbitrageBettingCalculator
         }
 
         Console.WriteLine("\n");
-        Console.WriteLine("Profit if Team A wins:" + netprofit1);
-        Console.WriteLine("Profit if Team B wins:" + netprofit2);
+        Console.WriteLine("Profit if your team wins:" + netProfitWin);
+        Console.WriteLine("Profit if your team loses:" + netProfitLoss);
         Console.WriteLine("\n");
         Console.WriteLine("Enter r to restart");
 
