@@ -7,6 +7,22 @@ using System.Threading.Tasks;
 class ArbitrageBettingCalculator
 {
     
+    static float convert (string input, float inputParse)
+    {
+        const int INVALID = -1;
+
+        try
+        {
+            inputParse = float.Parse(input);
+        }
+        catch
+        {
+            inputParse = INVALID;
+            Console.WriteLine("Invalid entry. Please try again.");
+        }
+        return inputParse;
+    }
+
     static void Main(string[] args)
     {   
         int betAmountWin, betAmountLoss, betAmountDraw;
@@ -20,9 +36,20 @@ class ArbitrageBettingCalculator
 
         //Getting the inputs from the user
 
-        Console.WriteLine("\n");
-        Console.WriteLine("Please enter the payout factor in case of a win:");
-        Console.WriteLine("\n");
+        
+
+        {
+            do
+            {
+                Console.WriteLine("\n");
+                Console.WriteLine("Please enter the payout factor in case of a win:");
+                Console.WriteLine("\n");
+                payoutWinString = Console.ReadLine();
+                payoutWin = convert(payoutWinString, payoutWin);
+            }
+            while (payoutWin < 0);
+        }
+        /*
         try
         {
             payoutWinString = Console.ReadLine();//this var is not used outside of this block. (That's why it doesn't need to be initialised outside the block.) Should I declare it inside the block??
@@ -33,6 +60,7 @@ class ArbitrageBettingCalculator
             Console.WriteLine("\n");
             Console.WriteLine(e.Message + " A default value of " + DEFAULT_VALUE + " has been used.");
         }
+        */
 
         Console.WriteLine("\n");
         Console.WriteLine("Please enter the payout factor in case of a loss");
