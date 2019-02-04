@@ -7,17 +7,23 @@ using System.Threading.Tasks;
 class ArbitrageBettingCalculator
 {
     
-    static float convert (string input, float inputParse)
+    static float Convert (string input, float inputParse)
     {
         const int INVALID = -1;
 
         try
         {
             inputParse = float.Parse(input);
+            if (inputParse < 0)
+            {
+                Console.WriteLine("\n");
+                Console.WriteLine("Negative values are not allowed. Please try again.");
+            }
         }
         catch
         {
             inputParse = INVALID;
+            Console.WriteLine("\n");
             Console.WriteLine("Invalid entry. Please try again.");
         }
         return inputParse;
@@ -25,116 +31,73 @@ class ArbitrageBettingCalculator
 
     static void Main(string[] args)
     {   
-        int betAmountWin, betAmountLoss, betAmountDraw;
-        float payoutWin, payoutLoss, payoutDraw, grossProfitWin, grossProfitLoss, grossProfitDraw, netProfitWin, netProfitLoss, netProfitDraw;
+        float payoutWin, payoutLoss, payoutDraw, betAmountWin, betAmountLoss, betAmountDraw, grossProfitWin, grossProfitLoss, grossProfitDraw, netProfitWin, netProfitLoss, netProfitDraw;
         string payoutWinString, payoutLossString, payoutDrawString, betAmountWinString, betAmountLossString, betAmountDrawString, restart;
 
-        const int DEFAULT_VALUE = 0;
+        const float DEFAULT_VALUE = 0;
 
         payoutWin = payoutLoss = payoutDraw = betAmountWin = betAmountLoss = betAmountDraw = DEFAULT_VALUE;
 
-
-        //Getting the inputs from the user
-
         
-
-        {
-            do
-            {
-                Console.WriteLine("\n");
-                Console.WriteLine("Please enter the payout factor in case of a win:");
-                Console.WriteLine("\n");
-                payoutWinString = Console.ReadLine();
-                payoutWin = convert(payoutWinString, payoutWin);
-            }
-            while (payoutWin < 0);
-        }
-        /*
-        try
-        {
-            payoutWinString = Console.ReadLine();//this var is not used outside of this block. (That's why it doesn't need to be initialised outside the block.) Should I declare it inside the block??
-            payoutWin = float.Parse(payoutWinString);
-        }
-        catch (Exception e)
+        do
         {
             Console.WriteLine("\n");
-            Console.WriteLine(e.Message + " A default value of " + DEFAULT_VALUE + " has been used.");
+            Console.WriteLine("Please enter the payout factor in case of a win:");
+            Console.WriteLine("\n");
+            payoutWinString = Console.ReadLine();
+            payoutWin = Convert(payoutWinString, payoutWin);
         }
-        */
+        while (payoutWin < 0);
 
-        Console.WriteLine("\n");
-        Console.WriteLine("Please enter the payout factor in case of a loss");
-        Console.WriteLine("\n");
-        try
+        do
         {
+            Console.WriteLine("\n");
+            Console.WriteLine("Please enter the payout factor in case of a loss");
+            Console.WriteLine("\n");
             payoutLossString = Console.ReadLine();
-            payoutLoss = float.Parse(payoutLossString);
+            payoutLoss = Convert(payoutLossString, payoutLoss);
         }
-        catch (Exception e)
+        while (payoutLoss < 0);
+
+        do
         {
             Console.WriteLine("\n");
-            Console.WriteLine(e.Message + " A default value of " + DEFAULT_VALUE + " has been used.");
-        }
-
-        Console.WriteLine("\n");
-        Console.WriteLine("Please enter the payout factor in case of a draw");
-        Console.WriteLine("\n");
-        try
-        {
+            Console.WriteLine("Please enter the payout factor in case of a draw");
+            Console.WriteLine("\n");
             payoutDrawString = Console.ReadLine();
-            payoutDraw = float.Parse(payoutDrawString);
+            payoutDraw = Convert(payoutDrawString, payoutDraw);
         }
-        catch (Exception e)
+        while (payoutDraw < 0);
+
+        do
         {
             Console.WriteLine("\n");
-            Console.WriteLine(e.Message + " A default value of " + DEFAULT_VALUE + " has been used.");
-        }
-
-        Console.WriteLine("\n");
-        Console.WriteLine("Please enter the amount that you wish to bet on a win (in pence)");
-        Console.WriteLine("\n");
-        try
-        {
+            Console.WriteLine("Please enter the amount that you wish to bet on a win");
+            Console.WriteLine("\n");
             betAmountWinString = Console.ReadLine();
-            betAmountWin = int.Parse(betAmountWinString);
+            betAmountWin = Convert(betAmountWinString, betAmountWin);
         }
-        catch (Exception e)
+        while (betAmountWin < 0);
+
+        do
         {
             Console.WriteLine("\n");
-            Console.WriteLine(e.Message + " A default value of " + DEFAULT_VALUE + " has been used.");
-        }
-
-        Console.WriteLine("\n");
-        Console.WriteLine("Please enter the amount that you wish to bet on a loss (in pence)");
-        Console.WriteLine("\n");
-        try
-        {
+            Console.WriteLine("Please enter the amount that you wish to bet on a loss");
+            Console.WriteLine("\n");
             betAmountLossString = Console.ReadLine();
-            betAmountLoss = int.Parse(betAmountLossString);
+            betAmountLoss = Convert(betAmountLossString, betAmountLoss);
         }
-        catch (Exception e)
+        while (betAmountLoss < 0);
+
+        do
         {
             Console.WriteLine("\n");
-            Console.WriteLine(e.Message + " A default value of " + DEFAULT_VALUE + " has been used.");
-        }
-
-        Console.WriteLine("\n");
-        Console.WriteLine("Please enter the amount that you wish to bet on a draw (in pence)");
-        Console.WriteLine("\n");
-        try
-        {
+            Console.WriteLine("Please enter the amount that you wish to bet on a draw");
+            Console.WriteLine("\n");
             betAmountDrawString = Console.ReadLine();
-            betAmountDraw = int.Parse(betAmountDrawString);
+            betAmountDraw = Convert(betAmountDrawString, betAmountDraw);
         }
-        catch (Exception e)
-        {
-            Console.WriteLine("\n");
-            Console.WriteLine(e.Message + " A default value of " + DEFAULT_VALUE + " has been used.");
-        }
-
-        //Calc standalone method...
-
-        //...up to here
+        while (betAmountDraw < 0);
 
         //Calculation and output
 
