@@ -99,7 +99,7 @@ class ArbitrageBettingCalculator
         }
         while (betAmountDraw < 0);
 
-        //Calculation and output
+        //Calculation
 
         grossProfitWin = payoutWin * betAmountWin;
         grossProfitLoss = payoutLoss * betAmountLoss;
@@ -108,6 +108,8 @@ class ArbitrageBettingCalculator
         netProfitWin = grossProfitWin - betAmountLoss;
         netProfitLoss = grossProfitLoss - betAmountWin;
         netProfitDraw = grossProfitDraw - betAmountDraw;
+
+        //Output
 
         if (netProfitWin > 0 & netProfitLoss > 0 & netProfitDraw > 0)
         {
