@@ -30,85 +30,62 @@ class ArbitrageBettingCalculator
         return inputParse;
     }
 
+    static float DoWhile (string prompt, string outcome, string input, float inputParse)
+    {
+        do
+        {
+            Console.WriteLine("\n");
+            Console.WriteLine("Please enter the " + prompt + " " + outcome + ":");
+            Console.WriteLine("\n");
+            input = Console.ReadLine();
+            inputParse = Convert(input, inputParse);
+        }
+        while (inputParse < 0);
+
+        return inputParse;
+    }
+
     static void Main(string[] args)
     {   
+        //Variable declarations, initialisations and assignments.
+
         float payoutWin, payoutLoss, payoutDraw, betAmountWin, betAmountLoss, betAmountDraw, grossProfitWin, grossProfitLoss, grossProfitDraw, netProfitWin, netProfitLoss, netProfitDraw;
         string payoutWinString, payoutLossString, payoutDrawString, betAmountWinString, betAmountLossString, betAmountDrawString, restart;
 
         const float DEFAULT_VALUE = 0;
+        const string OUTCOME_WIN = "win";
+        const string OUTCOME_LOSS = "loss";
+        const string OUTCOME_DRAW = "draw";
+        const string PAYOUT_PROMPT = "payout factor in case of a";
+        const string AMOUNT_PROMPT = "amount that you wish to bet on a";
+
+        payoutWinString = payoutLossString = payoutDrawString = betAmountWinString = betAmountLossString = betAmountDrawString = "";
 
         payoutWin = payoutLoss = payoutDraw = betAmountWin = betAmountLoss = betAmountDraw = DEFAULT_VALUE;
 
-        
-        do
-        {
-            Console.WriteLine("\n");
-            Console.WriteLine("Please enter the payout factor in case of a win:");
-            Console.WriteLine("\n");
-            payoutWinString = Console.ReadLine();
-            payoutWin = Convert(payoutWinString, payoutWin);
-        }
-        while (payoutWin < 0);
+        //Getting user input
 
-        do
-        {
-            Console.WriteLine("\n");
-            Console.WriteLine("Please enter the payout factor in case of a loss");
-            Console.WriteLine("\n");
-            payoutLossString = Console.ReadLine();
-            payoutLoss = Convert(payoutLossString, payoutLoss);
-        }
-        while (payoutLoss < 0);
+        payoutWin = DoWhile(PAYOUT_PROMPT, OUTCOME_WIN, payoutWinString, payoutWin);
 
-        do
-        {
-            Console.WriteLine("\n");
-            Console.WriteLine("Please enter the payout factor in case of a draw");
-            Console.WriteLine("\n");
-            payoutDrawString = Console.ReadLine();
-            payoutDraw = Convert(payoutDrawString, payoutDraw);
-        }
-        while (payoutDraw < 0);
+        payoutLoss = DoWhile(PAYOUT_PROMPT, OUTCOME_LOSS, payoutLossString, payoutLoss);
 
-        do
-        {
-            Console.WriteLine("\n");
-            Console.WriteLine("Please enter the amount that you wish to bet on a win");
-            Console.WriteLine("\n");
-            betAmountWinString = Console.ReadLine();
-            betAmountWin = Convert(betAmountWinString, betAmountWin);
-        }
-        while (betAmountWin < 0);
+        payoutDraw = DoWhile(PAYOUT_PROMPT, OUTCOME_DRAW, payoutDrawString, payoutDraw);
 
-        do
-        {
-            Console.WriteLine("\n");
-            Console.WriteLine("Please enter the amount that you wish to bet on a loss");
-            Console.WriteLine("\n");
-            betAmountLossString = Console.ReadLine();
-            betAmountLoss = Convert(betAmountLossString, betAmountLoss);
-        }
-        while (betAmountLoss < 0);
+        betAmountWin = DoWhile(AMOUNT_PROMPT, OUTCOME_WIN, betAmountWinString, betAmountWin);
 
-        do
-        {
-            Console.WriteLine("\n");
-            Console.WriteLine("Please enter the amount that you wish to bet on a draw");
-            Console.WriteLine("\n");
-            betAmountDrawString = Console.ReadLine();
-            betAmountDraw = Convert(betAmountDrawString, betAmountDraw);
-        }
-        while (betAmountDraw < 0);
+        betAmountLoss = DoWhile(AMOUNT_PROMPT, OUTCOME_LOSS, betAmountLossString, betAmountLoss);
 
-        //Calculation
+        betAmountDraw = DoWhile(AMOUNT_PROMPT, OUTCOME_DRAW, betAmountDrawString, betAmountDraw);
+
+        //Numeric Calculations
 
         grossProfitWin = payoutWin * betAmountWin;
         grossProfitLoss = payoutLoss * betAmountLoss;
         grossProfitDraw = payoutDraw * betAmountDraw;
 
-        netProfitWin = grossProfitWin - betAmountLoss;
-        netProfitLoss = grossProfitLoss - betAmountWin;
-        netProfitDraw = grossProfitDraw - betAmountDraw;
+        netProfitWin = grossProfitWin - betAmountLoss - betAmountDraw;
+        netProfitLoss = grossProfitLoss - betAmountWin - betAmountDraw;
+        netProfitDraw = grossProfitDraw - betAmountWin - betAmountLoss;
 
         //Output
 
