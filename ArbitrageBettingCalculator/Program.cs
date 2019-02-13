@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 class ArbitrageBettingCalculator
 {
     
-    static float Convert (string input, float inputParse)
+    static float ConvertInput (string input, float inputParse)
     {
         const int INVALID = -1;
 
@@ -30,7 +30,7 @@ class ArbitrageBettingCalculator
         return inputParse;
     }
 
-    static float DoWhile (string prompt, string outcome, string input, float inputParse)
+    static float GetInput (string prompt, string outcome, string input, float inputParse)
     {
         do
         {
@@ -38,7 +38,7 @@ class ArbitrageBettingCalculator
             Console.WriteLine("Please enter the " + prompt + " " + outcome + ":");
             Console.WriteLine("\n");
             input = Console.ReadLine();
-            inputParse = Convert(input, inputParse);
+            inputParse = ConvertInput(input, inputParse);
         }
         while (inputParse < 0);
 
@@ -65,17 +65,17 @@ class ArbitrageBettingCalculator
 
         //Getting user input
 
-        payoutWin = DoWhile(PAYOUT_PROMPT, OUTCOME_WIN, payoutWinString, payoutWin);
+        payoutWin = GetInput(PAYOUT_PROMPT, OUTCOME_WIN, payoutWinString, payoutWin);
 
-        payoutLoss = DoWhile(PAYOUT_PROMPT, OUTCOME_LOSS, payoutLossString, payoutLoss);
+        payoutLoss = GetInput(PAYOUT_PROMPT, OUTCOME_LOSS, payoutLossString, payoutLoss);
 
-        payoutDraw = DoWhile(PAYOUT_PROMPT, OUTCOME_DRAW, payoutDrawString, payoutDraw);
+        payoutDraw = GetInput(PAYOUT_PROMPT, OUTCOME_DRAW, payoutDrawString, payoutDraw);
 
-        betAmountWin = DoWhile(AMOUNT_PROMPT, OUTCOME_WIN, betAmountWinString, betAmountWin);
+        betAmountWin = GetInput(AMOUNT_PROMPT, OUTCOME_WIN, betAmountWinString, betAmountWin);
 
-        betAmountLoss = DoWhile(AMOUNT_PROMPT, OUTCOME_LOSS, betAmountLossString, betAmountLoss);
+        betAmountLoss = GetInput(AMOUNT_PROMPT, OUTCOME_LOSS, betAmountLossString, betAmountLoss);
 
-        betAmountDraw = DoWhile(AMOUNT_PROMPT, OUTCOME_DRAW, betAmountDrawString, betAmountDraw);
+        betAmountDraw = GetInput(AMOUNT_PROMPT, OUTCOME_DRAW, betAmountDrawString, betAmountDraw);
 
         //Numeric Calculations
 

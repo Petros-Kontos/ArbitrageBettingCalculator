@@ -1,8 +1,8 @@
 # Arbitrage Betting Calculator
 
-(Project in progress)
+*** SPECIAL THANKS to Panos Pantouveris for introducing me to the concept of arbitrage betting. *** 
 
-This project aims to create a piece of software that identifies arbitrage betting opportunities.
+A calculator that identifies arbitrage betting opportunities.
 
 Arbitrage betting means betting in a way that there is no risk of loss.
 
