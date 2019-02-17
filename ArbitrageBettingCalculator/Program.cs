@@ -53,9 +53,9 @@ class ArbitrageBettingCalculator
         string payoutWinString, payoutLossString, payoutDrawString, betAmountWinString, betAmountLossString, betAmountDrawString, restart;
 
         const float DEFAULT_VALUE = 0;
-        const string OUTCOME_WIN = "win";
-        const string OUTCOME_LOSS = "loss";
-        const string OUTCOME_DRAW = "draw";
+        const string WIN = "win";
+        const string LOSS = "loss";
+        const string DRAW = "draw";
         const string PAYOUT_PROMPT = "payout factor in case of a";
         const string AMOUNT_PROMPT = "amount that you wish to bet on a";
 
@@ -65,17 +65,17 @@ class ArbitrageBettingCalculator
 
         //Getting user input
 
-        payoutWin = GetInput(PAYOUT_PROMPT, OUTCOME_WIN, payoutWinString, payoutWin);
+        payoutWin = GetInput(PAYOUT_PROMPT, WIN, payoutWinString, payoutWin);
 
-        payoutLoss = GetInput(PAYOUT_PROMPT, OUTCOME_LOSS, payoutLossString, payoutLoss);
+        payoutLoss = GetInput(PAYOUT_PROMPT, LOSS, payoutLossString, payoutLoss);
 
-        payoutDraw = GetInput(PAYOUT_PROMPT, OUTCOME_DRAW, payoutDrawString, payoutDraw);
+        payoutDraw = GetInput(PAYOUT_PROMPT, DRAW, payoutDrawString, payoutDraw);
 
-        betAmountWin = GetInput(AMOUNT_PROMPT, OUTCOME_WIN, betAmountWinString, betAmountWin);
+        betAmountWin = GetInput(AMOUNT_PROMPT, WIN, betAmountWinString, betAmountWin);
 
-        betAmountLoss = GetInput(AMOUNT_PROMPT, OUTCOME_LOSS, betAmountLossString, betAmountLoss);
+        betAmountLoss = GetInput(AMOUNT_PROMPT, LOSS, betAmountLossString, betAmountLoss);
 
-        betAmountDraw = GetInput(AMOUNT_PROMPT, OUTCOME_DRAW, betAmountDrawString, betAmountDraw);
+        betAmountDraw = GetInput(AMOUNT_PROMPT, DRAW, betAmountDrawString, betAmountDraw);
 
         //Numeric Calculations
 
