@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 class ArbitrageBettingCalculator
 {
     
-    static float ConvertInput (string input, float inputParse)
+    static float ConvertInput (string input)
     {
+        float inputParse;
         const int INVALID = -1;
 
         try
@@ -30,15 +31,17 @@ class ArbitrageBettingCalculator
         return inputParse;
     }
 
-    static float GetInput (string prompt, string outcome, string input, float inputParse)
+    static float GetInput (string prompt, string outcome, string input)
     {
+        float inputParse;
+
         do
         {
             Console.WriteLine("\n");
             Console.WriteLine("Please enter the " + prompt + " " + outcome + ":");
             Console.WriteLine("\n");
             input = Console.ReadLine();
-            inputParse = ConvertInput(input, inputParse);
+            inputParse = ConvertInput(input);
         }
         while (inputParse < 0);
 
@@ -52,7 +55,6 @@ class ArbitrageBettingCalculator
         float payoutWin, payoutLoss, payoutDraw, betAmountWin, betAmountLoss, betAmountDraw, grossProfitWin, grossProfitLoss, grossProfitDraw, netProfitWin, netProfitLoss, netProfitDraw;
         string payoutWinString, payoutLossString, payoutDrawString, betAmountWinString, betAmountLossString, betAmountDrawString, restart;
 
-        const float DEFAULT_VALUE = 0;
         const string WIN = "win";
         const string LOSS = "loss";
         const string DRAW = "draw";
@@ -61,21 +63,19 @@ class ArbitrageBettingCalculator
 
         payoutWinString = payoutLossString = payoutDrawString = betAmountWinString = betAmountLossString = betAmountDrawString = "";
 
-        payoutWin = payoutLoss = payoutDraw = betAmountWin = betAmountLoss = betAmountDraw = DEFAULT_VALUE;
-
         //Getting user input
 
-        payoutWin = GetInput(PAYOUT_PROMPT, WIN, payoutWinString, payoutWin);
+        payoutWin = GetInput(PAYOUT_PROMPT, WIN, payoutWinString);
 
-        payoutLoss = GetInput(PAYOUT_PROMPT, LOSS, payoutLossString, payoutLoss);
+        payoutLoss = GetInput(PAYOUT_PROMPT, LOSS, payoutLossString);
 
-        payoutDraw = GetInput(PAYOUT_PROMPT, DRAW, payoutDrawString, payoutDraw);
+        payoutDraw = GetInput(PAYOUT_PROMPT, DRAW, payoutDrawString);
 
-        betAmountWin = GetInput(AMOUNT_PROMPT, WIN, betAmountWinString, betAmountWin);
+        betAmountWin = GetInput(AMOUNT_PROMPT, WIN, betAmountWinString);
 
-        betAmountLoss = GetInput(AMOUNT_PROMPT, LOSS, betAmountLossString, betAmountLoss);
+        betAmountLoss = GetInput(AMOUNT_PROMPT, LOSS, betAmountLossString);
 
-        betAmountDraw = GetInput(AMOUNT_PROMPT, DRAW, betAmountDrawString, betAmountDraw);
+        betAmountDraw = GetInput(AMOUNT_PROMPT, DRAW, betAmountDrawString);
 
         //Numeric Calculations
 
