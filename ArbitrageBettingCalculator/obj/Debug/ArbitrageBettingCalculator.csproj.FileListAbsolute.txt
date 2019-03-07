@@ -1,7 +1,0 @@
-C:\Users\p_kon\source\repos\ArbitrageBettingCalculator\ArbitrageBettingCalculator\bin\Debug\ArbitrageBettingCalculator.exe.config
-C:\Users\p_kon\source\repos\ArbitrageBettingCalculator\ArbitrageBettingCalculator\bin\Debug\ArbitrageBettingCalculator.exe
-C:\Users\p_kon\source\repos\ArbitrageBettingCalculator\ArbitrageBettingCalculator\bin\Debug\ArbitrageBettingCalculator.pdb
-C:\Users\p_kon\source\repos\ArbitrageBettingCalculator\ArbitrageBettingCalculator\obj\Debug\ArbitrageBettingCalculator.csprojAssemblyReference.cache
-C:\Users\p_kon\source\repos\ArbitrageBettingCalculator\ArbitrageBettingCalculator\obj\Debug\ArbitrageBettingCalculator.csproj.CoreCompileInputs.cache
-C:\Users\p_kon\source\repos\ArbitrageBettingCalculator\ArbitrageBettingCalculator\obj\Debug\ArbitrageBettingCalculator.exe
-C:\Users\p_kon\source\repos\ArbitrageBettingCalculator\ArbitrageBettingCalculator\obj\Debug\ArbitrageBettingCalculator.pdb
