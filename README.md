@@ -1,6 +1,6 @@
 # Arbitrage Betting Calculator
 
-*** SPECIAL THANKS to Panos Pantouveris for introducing me to the concept of arbitrage betting. *** 
+*** Special thanks to Panos Pantouveris for introducing me to the concept of arbitrage betting. *** 
 
 A calculator that identifies arbitrage betting opportunities.
 
