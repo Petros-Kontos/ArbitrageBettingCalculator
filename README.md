@@ -1,7 +1,5 @@
 # Arbitrage Betting Calculator
 
-*** Special thanks to Panos Pantouveris for introducing me to the concept of arbitrage betting. *** 
-
 A calculator that identifies arbitrage betting opportunities.
 
 Arbitrage betting means betting in a way that there is no risk of loss.
